@@ -1,0 +1,25 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+td.btn {
+    border-radius: 0%;
+    border-width: 0px;
+}
+
+a.btn {
+    border-radius: 0%;
+    border-width: 0px;
+}
+
+#update-author-td, #delete-author-td {
+    padding: 0px;
+    border-radius: 0%;
+    border-width: 0px;
+}

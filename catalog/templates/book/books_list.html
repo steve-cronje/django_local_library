@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Book List</h1>
+  {% if book_list %}
+    <table class="table table-light table-borderless">
+      <thead class="table-dark">
+        <th>Book</th>
+        <th>Author</th>
+        <th>Genres</th>
+      </thead>
+      <tbody>
+        {% for book in book_list %}
+        <tr>
+          <td class="btn btn-outline-primary container-fluid" onclick="window.location='{{ book.get_absolute_url }}'">{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.display_genre }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        <div class="col align-self-center">
+          <table class="table table table-borderless">
+            <thead>
+            </thead>
+            <tbody>
+              <tr>
+                <th>First Name</th>
+                <td>{{ form.first_name }}</td>
+              </tr>
+              <tr>
+                <th>Last Name</th>
+                <td>{{ form.last_name }}</td>
+              </tr>
+              <tr>
+                <th>Date of birth</th>
+                <td>{{ form.date_of_birth }}</td>
+              </tr>
+              <tr>
+                <th>Date of death</th>
+                <td>{{ form.date_of_death }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <input type="submit" value="Submit">
+        </div>
+      </div>
+    </div>   
+    
+  </form>
+{% endblock %}

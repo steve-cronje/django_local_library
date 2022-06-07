@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Author List</h1>
+  {% if author_list %}
+  <table class="table table-light table-borderless">
+    <thead class="table-dark">
+      <th>Name</th>
+      <th>Born</th>
+      <th>Died</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      {% for author in author_list %}
+      <tr>
+        <td class="btn btn-outline-primary container-fluid" onclick="window.location='{{ author.get_absolute_url }}'">{{ author }}</td>
+        <td>{{ author.date_of_birth }}</td>
+        <td>{{ author.date_of_death }}</td>
+        {% if perms.catalog.can_edit_authors %}
+        <td id="update-author-td"><a href="{% url 'author-update' author.pk %}" class="btn btn-outline-secondary container-fluid">Update</a></td>
+        <td id="delete-author-td"><a href="{% url 'author-delete' author.pk %}" class="btn btn-outline-danger container-fluid">Delete</a></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  {% else %}
+    <p>There are no authors in the library.</p>
+  {% endif %}
+{% endblock %}
